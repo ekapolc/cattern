@@ -10,7 +10,7 @@ Don’t forget to stop your instance when you are done (by clicking on the stop 
 
 If you follow our instructions below correctly, you should be able to restart your instance and the downloaded software will still be available.
 
-![forgot](https://github.com/ekapolc/cattern/raw/master/common/images/forgot.png "I forgot to shut down my instance")
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/forgot.jpg "I forgot to shut down my instance")
 
 # Create and Configure Your Account
 

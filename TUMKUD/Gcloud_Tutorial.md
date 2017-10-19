@@ -172,11 +172,40 @@ In this section, we will add a password to your Jupyter Notebook server (otherwi
 
 We start by setting up a password. Do this running a simple script we provide. You will be asked for a password twice, then it will generate a hashed verion of your password.
 ```
+wget https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/mkpassword.py
 python mkpassword.py
-jupyter notebook password
+```
+Take note of the output (sha1:XXXXXXXXXXX). 
+
+Update `jupyter_notebook_config.py` with
+```
+c.NotebookApp.password = 'sha1:XXXXXXXXXXX
 ```
 
+Even if we require a password to login, someone can still get access to our password if our connection is non-encrypted. You can start the notebook to communicate via a secure protocol mode by setting the certfile option to a self-signed certificate which can be easily created by
 
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mykey.key -out mycert.pem
+```
+
+You will be asked with many prompts, but you can keep hitting Enter until it is done.
+
+Then move your cert and key to .jupyter
+
+```
+mv mykey.key ~/.jupyter/
+mv mycert.pem ~/.jupyter/
+```
+
+Update your `jupyter_notebook_config.py` with
+
+```
+c.NotebookApp.keyfile = '/home/ekapolc/.jupyter/mykey.key'
+c.NotebookApp.certfile = '/home/ekapolc/.jupyter/mycert.pem'
+```
+
+(Obviously replace ekapolc with your user name.)
+Now you are done with the setup and ready to access your Notebook
 
 ### Launching and connecting to Jupyter Notebook ###
 The instructions below assume that you have SSH'd into your GCE instance using the prior instructions, and have successfully configured Jupyter Notebook.
@@ -195,9 +224,14 @@ jupyter-notebook --no-browser --port=<PORT-NUMBER>
 
 Where \<PORT-NUMBER\> is what you wrote in the prior section.
 
-On your local browser, if you go to http://\<YOUR-EXTERNAL-IP-ADDRESS>:\<PORT-NUMBER\>, you should see something like the screen below. My value for \<YOUR-EXTERNAL-IP-ADDRESS\> was 104.196.224.11 as mentioned above. You should now be able to start working on your assignments. 
+On your local browser, if you go to https://\<YOUR-EXTERNAL-IP-ADDRESS>:\<PORT-NUMBER\>, you will be asked for a password, and then you should see something like the screen below. My value for \<YOUR-EXTERNAL-IP-ADDRESS\> was 104.196.224.11 as mentioned above. You should now be able to start working on your assignments.
 
 ![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/jupyter-screen.png "jupyter-screen.png")
+
+If you do not see this, there are several pitfalls.
+
+1. Not using https when connecting.
+2. If your key and cert files are mis-configured, the Jupyter page will fail to load. Double check that you points to the correct files.
 
 ## Submission: Transferring Files From Your Instance To Your Computer ##
 Once you are done with your assignments, zip the files you need. Then, copy the file to your local computer using the gcloud compute copy-file command as shown below. **NOTE: run this command on your local computer**:

@@ -82,23 +82,24 @@ in your assignment directory to load the venv, and run
 ```
 deactivate
 ```
-to exit the venv. See assignment handout for details.
+to exit the venv.
 
-**NOTE**: The instructions above will run everything needed using Python 2.7. If you would like to use Python 3.5 instead, edit setup_googlecloud.sh to replce the line 
+**NOTE**: The instructions above will run everything needed using Python 3. If you would like to use Python 2 instead, edit setup_googlecloud.sh to replce the line 
 
 ```
-virtualenv .env 
+virtualenv -p python3 .env 
 ```
 
 with 
 
 ```
-virtualenv -p python3 .env
+virtualenv .env
 ```
 
 before running 
 
 ```
+chmod 777 setup_googlecloud.sh
 ./setup_googlecloud.sh
 ```
 
@@ -164,6 +165,18 @@ c.NotebookApp.port = <PORT-NUMBER>
 ```
 
 Where \<PORT-NUMBER\> is the same number you used in the prior section. Save your changes and close the file. 
+
+### Securing your Jupyter Notebook server ###
+
+In this section, we will add a password to your Jupyter Notebook server (otherwise anyone that knows the ip and port can access your Jupyter server and do nasty things to it).
+
+We start by setting up a password. Do this running a simple script we provide. You will be asked for a password twice, then it will generate a hashed verion of your password.
+```
+python mkpassword.py
+jupyter notebook password
+```
+
+
 
 ### Launching and connecting to Jupyter Notebook ###
 The instructions below assume that you have SSH'd into your GCE instance using the prior instructions, and have successfully configured Jupyter Notebook.

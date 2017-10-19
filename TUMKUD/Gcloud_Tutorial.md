@@ -120,9 +120,8 @@ To have a static IP address, change **Type** from **Ephemeral** to **Static**. E
 
 Take note of your Static IP address (circled on the screenshot below). I used 104.196.224.11 for this tutorial.
 
-<div class='fig figcenter fighighlight'>
-  <img src='/assets/cloud-networking-external-ip-address.png'>
-</div>
+
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/cloud-networking-external-ip-address.png "cloud-networking-external-ip-address.png")
 
 ### Adding a Firewall rule ###
 One last thing you have to do is adding a new firewall rule allowing TCP acess to a particular \<PORT-NUMBER\>. I usually use 7000 or 8000 for \<PORT-NUMBER\>. Click on the 3 line icon at the top of the page next to **Google Cloud Platform**. On the menu that pops up on the left column, go to **Networking** and **Firewall rules** (see the screenshot below). 

@@ -8,11 +8,11 @@ To start an instance with a GPU (for the first time) you first need to request a
 
 Click on the blue **Request Increase** button. This opens a new tab with many quota information. Select **Google Compute Engine API NVIDIA K80 GPUs**. Then, press on the **EDIT QUOTAS** button above. This will open a tab on the right side. Enter the necessary information as shown below
 
-![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/oogle-cloud-quotas-screen-step1.png "oogle-cloud-quotas-screen-step1.png")
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-quotas-screen-step1.png "google-cloud-quotas-screen-step1.png")
 
 Click Next, then enter 1 for the quota number, enter the justification as shown. Submit the Request. 
 
-![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/oogle-cloud-quotas-screen-step2.png "oogle-cloud-quotas-screen-step2.png")
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-quotas-screen-step2.png "google-cloud-quotas-screen-step2.png")
 
 Once you have your quota increase you can just use GPUs (without requesting a quota increase). After you submit the form, you should receive an email approving your quota increase shortly after (I received my email within a minute). If you don't receive your approval within a day, please inform the instructor. Once you have received your quota increase, you can start an instance with a GPU. To do this, while launching a virtual instance as described in the **Launch a Virtual Instance** section [here](https://github.com/ekapolc/cattern/blob/master/TUMKUD/Gcloud_Tutorial.md), select the number of GPUs to be 1 (K80 GPU). As a reminder, you can only use up to the number of GPUs allowed by your quota.
 

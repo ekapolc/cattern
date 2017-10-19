@@ -27,7 +27,7 @@ Setting up a GPU instance from scratch is time consuming (took me half a day), s
 After getting access to the image, use gcloud console tool to create the instance with the command
 
 ```
-gcloud compute instances create <instance-name> --image cattern --image-project august-ensign-168512 --no-boot-disk-auto-delete --machine-type ni-standard-8 --accelerator type=nvidia-tesla-k80,count=1 --tags http-server,https-server --zone asia-east1-a
+gcloud compute instances create <instance-name> --image cattern --image-project august-ensign-168512 --no-boot-disk-auto-delete --machine-type n1-standard-8 --zone asia-east1-a
 ```
 
 If this completes successfully, you should see an instance in the GCloud web console.
@@ -38,5 +38,5 @@ The machine comes pre-installed with CUDA, CuDNN, and other nvidia tools. Howeve
 
 ```
 wget https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/driverinstall.sh
-sudo ./driverinstall.sh
+sudo sh ./driverinstall.sh
 ```

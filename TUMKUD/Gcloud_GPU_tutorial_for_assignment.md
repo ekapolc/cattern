@@ -190,7 +190,7 @@ In this section, we will add a password to your Jupyter Notebook server (otherwi
 
 We start by setting up a password. Do this running a simple script we provide. You will be asked for a password twice, then it will generate a hashed verion of your password.
 ```
-wget https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/mkpassword.py
+wget --no-check-certificate https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/mkpassword.py
 python mkpassword.py
 ```
 Take note of the output (sha1:XXXXXXXXXXX). 

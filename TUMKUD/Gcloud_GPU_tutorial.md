@@ -38,6 +38,6 @@ If this completes successfully, you should see an instance in the GCloud web con
 The machine comes pre-installed with CUDA, CuDNN, and other nvidia tools. However, the driver need to be re-installed for every now instance. To do so run
 
 ```
-wget  --no-check-certificate https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/driverinstall.sh
+wget --no-check-certificate https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/driverinstall.sh
 sudo sh ./driverinstall.sh
 ```

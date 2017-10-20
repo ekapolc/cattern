@@ -1,3 +1,4 @@
+# THIS FILE IS OBSOLETE #
 # Google Cloud Tutorial (Part 2 With GPUs) #
 This tutorial assumes that you have already gone through the first Google Cloud tutorial [here](https://github.com/ekapolc/cattern/blob/master/TUMKUD/Gcloud_Tutorial.md). The first tutorial takes you through the process of setting up a Google Cloud account, launching a VM instance, accessing Jupyter Notebook from your local computer, and transferring files to your local computer. While you created a VM instance without a GPU in the first tutorial, this one walks you through the necessary steps to create an instance with a GPU, and use provided disk images to work on the assignments (which has the setups to properly use the GPU). If you haven't already done so, we advise you to go through the first tutorial to be comfortable with the process of creating an instance with the right configurations and accessing Jupyter Notebook from your local computer.
 
@@ -37,6 +38,6 @@ If this completes successfully, you should see an instance in the GCloud web con
 The machine comes pre-installed with CUDA, CuDNN, and other nvidia tools. However, the driver need to be re-installed for every now instance. To do so run
 
 ```
-wget https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/driverinstall.sh
+wget  --no-check-certificate https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/driverinstall.sh
 sudo sh ./driverinstall.sh
 ```

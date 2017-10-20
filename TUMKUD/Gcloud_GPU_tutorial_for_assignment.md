@@ -1,4 +1,4 @@
-# Google Cloud Tutorial
+# Google Cloud Tutorial for Homework 4
 Many parts in this tutorial is modified from Stanford's [CS231n's tutorial](http://cs231n.github.io/gce-tutorial/)
 
 # BEFORE WE BEGIN
@@ -90,56 +90,45 @@ Now that you have created your virtual GCE, you want to be able to connect to it
 
 where <YOUR-INSTANCE-NAME> should be homework4. See [this page](https://cloud.google.com/compute/docs/instances/connecting-to-instance) for more detailed instructions. You are now ready to work on Google Cloud. 
 
-You should be logged in with the same name
-
-Run the following command to download a typical setup script for your GCE:
+You should be logged in with the same name as your username on your local computer. We have setup the development environment under my user account (ekapolc). To switch user, do
 
 ```
-wget https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/setup_googlecloud.sh
-wget https://raw.githubusercontent.com/ekapolc/cattern/master/TUMKUD/requirements.txt
+sudo su ekapolc
 ```
 
-To install the usual things like jupyter (**NOTE:** you do not need to do this for Thai word segmentation assignment), run the provided shell script: **(Note: you will need to hit the [*enter*] key at all the "[Y/n]" prompts)**
+You will notice that you are now under my user account.
+
+## Checking your GPU ##
+
+First, let's check your GPU. Do
 
 ```
-./setup_googlecloud.sh
+nvidia-smi
 ```
 
-You will be prompted to enter Y/N at various times during the download. Press enter for every prompt. If you had no errors, you can proceed to work with your virtualenv as normal.
+You should see something like the screen below:
 
-I.e. run 
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/nvidia-smi.png "nvidia-smi.png")
+
+The top table shows the GPUs available. You should see one Telsa K80, called GPU number 0. The bottom table shows the processes that use GPUs. You can verify if things are running properly on the GPU by monitoring nvidia-smi.
+
+## Virtualenv
+
+We have already installed Jupyter (and tensorflow, keras, etc.) on virtualenv. Virtualenv is a virtual environment for python, so that you can have different setups of python on the same machine. To activate the virtualenv do
 
 ```
 source .env/bin/activate
 ```
 
-in your assignment directory to load the venv, and run 
+under ekapolc user account, and run 
 
 ```
 deactivate
 ```
-to exit the venv.
-
-**NOTE**: The instructions above will run everything needed using Python 3. If you would like to use Python 2 instead, edit setup_googlecloud.sh to replce the line 
-
-```
-virtualenv -p python3 .env 
-```
-
-with 
-
-```
-virtualenv .env
-```
-
-before running 
-
-```
-chmod 777 setup_googlecloud.sh
-./setup_googlecloud.sh
-```
+to exit the venv. This is a python3 environment.
 
 ## Using Jupyter Notebook with Google Compute Engine ##
+
 Many of the assignments will involve using Jupyter Notebook. Below, we discuss how to run Jupyter Notebook from your GCE instance and use it on your local browser. 
 
 ### Getting a Static IP Address ###

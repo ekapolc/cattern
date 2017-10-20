@@ -129,7 +129,7 @@ to exit the venv. This is a python3 environment.
 
 ## Using Jupyter Notebook with Google Compute Engine ##
 
-Many of the assignments will involve using Jupyter Notebook. Below, we discuss how to run Jupyter Notebook from your GCE instance and use it on your local browser. 
+Many of the assignments will involve using Jupyter Notebook. Below, we discuss how to run Jupyter Notebook from your GCE instance and use it on your local browser.
 
 ### Getting a Static IP Address ###
 Change the Extenal IP address of your GCE instance to be static (see screenshot below). 
@@ -163,21 +163,14 @@ Click on the blue **CREATE FIREWALL RULE** button. Enter whatever name you want:
 ### Configuring Jupyter Notebook ###
 The following instructions are excerpts from [this page](https://haroldsoh.com/2016/04/28/set-up-anaconda-ipython-tensorflow-julia-on-a-google-compute-engine-vm/) that has more detailed instructions.
 
-On your GCE instance check where the Jupyter configuration file is located:
+The Jupyter configuration file `jupyter_notebook_config.py` is the default config file, jupyter uses when starting. We will create one by (assuming you are login as ekapolc and already activate the virtualenv)
 
 ```
-ls ~/.jupyter/jupyter_notebook_config.py
-```
-Mine was in /home/timnitgebru/.jupyter/jupyter_notebook_config.py
-
-If it doesn’t exist, create one:
-
-```
-# Remember to activate your virtualenv ('source .env/bin/activate') so you can actually run jupyter :)
+rm ~/.jupyter/jupyter_notebook_config.py
 jupyter notebook --generate-config
 ```
 
-Using your favorite editor (vim, emacs etc...) add the following lines to the config file, (e.g.: /home/timnitgebru/.jupyter/jupyter_notebook_config.py):
+Using your favorite editor (vim, emacs etc...) add the following lines to the config file, (e.g.: /home/ekapolc/.jupyter/jupyter_notebook_config.py):
 
 ```
 c = get_config()
@@ -229,7 +222,6 @@ c.NotebookApp.keyfile = '/home/ekapolc/.jupyter/mykey.key'
 c.NotebookApp.certfile = '/home/ekapolc/.jupyter/mycert.pem'
 ```
 
-(Obviously replace ekapolc with your user name.)
 Now you are done with the setup and ready to access your Notebook
 
 ### Launching and connecting to Jupyter Notebook ###

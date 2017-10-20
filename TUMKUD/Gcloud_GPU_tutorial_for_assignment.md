@@ -262,7 +262,7 @@ For example, to copy my files to my desktop I ran:
 ```
 gcloud compute copy-files instance-2:~/answers.zip ~/Desktop
 ```
-Another (perhaps easier) option proposed by a student is to directly download the zip file from Jupyter. After creating assignment1.zip, you can download that file directly from Jupyter. To do this, go to Jupyter Notebook and click on the zip file (in this case assignment1.zip). The file will be downloaded to your local computer. 
+Another (perhaps easier) option proposed by a student is to directly download the zip file from Jupyter. After creating answers.zip, you can download that file directly from Jupyter. To do this, go to Jupyter Notebook and click on the zip file (in this case answers.zip). The file will be downloaded to your local computer. 
 
 You can refer to [this page](https://cloud.google.com/compute/docs/instances/transfer-files "Title") for more details on transferring files to/from Google Cloud.
 

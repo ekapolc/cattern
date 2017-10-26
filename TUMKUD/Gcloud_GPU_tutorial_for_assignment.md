@@ -34,7 +34,7 @@ To change the name of your project, click on **Manage project settings** on the 
 
 ![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/cloud-instance-dashboard-screen.png "cloud-instance-dashboard-screen")
 
-Then, download the Google Cloud SDK that is appropriate for your platform from [here](https://cloud.google.com/sdk/docs/) and follow their installation instructions. **NOTE: this tutorial assumes that you have performed step #4 on the website which they list as optional**. When prompted, make sure you select us-east1-a as the time zone.
+Then, download the Google Cloud SDK that is appropriate for your platform from [here](https://cloud.google.com/sdk/docs/) and follow their installation instructions. **NOTE: this tutorial assumes that you have performed step #4 on the website which they list as optional**. When prompted, make sure you select asia-east1-a as the time zone.
 
 ## Requesting GPU Quota Increase ##
 To start an instance with a GPU (for the first time) you first need to request an increase in the number of GPUs you can use. To do this, go to your console, click on the **Computer Engine** button and select the **Quotas** menu. You will see a page that looks like the one below.
@@ -85,7 +85,7 @@ Click on the instance name (homework4) to edit the instance. Here, we will add a
 Now that you have created your virtual GCE, you want to be able to connect to it from your computer. The rest of this tutorial goes over how to do that using the command line (Gcloud SDK). The easiest way to connect is using the gcloud compute command below. The tool takes care of authentication for you. On OS X, run:
 
 ```
-./<DIRECTORY-WHERE-GOOGLE-CLOUD-IS-INSTALLED>/bin/gcloud compute ssh --zone=us-east1-a <YOUR-INSTANCE-NAME>
+./<DIRECTORY-WHERE-GOOGLE-CLOUD-IS-INSTALLED>/bin/gcloud compute ssh --zone=asia-east1-a <YOUR-INSTANCE-NAME>
 ```
 
 where <YOUR-INSTANCE-NAME> should be homework4. See [this page](https://cloud.google.com/compute/docs/instances/connecting-to-instance) for more detailed instructions. You are now ready to work on Google Cloud. 

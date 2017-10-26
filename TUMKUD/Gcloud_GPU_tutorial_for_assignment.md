@@ -266,6 +266,57 @@ Another (perhaps easier) option proposed by a student is to directly download th
 
 You can refer to [this page](https://cloud.google.com/compute/docs/instances/transfer-files "Title") for more details on transferring files to/from Google Cloud.
 
+## Adding a data disk ##
+
+The image we provided only have 10GB of disk space. You will need more in order to finish the assignment. To do so first, stop the instance. Click on the instance name (homework4) to edit the instance on the web console interface (just like how you added the GPU). 
+
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-edit-instance.png "google-cloud-edit-instance.png")
+
+Click on edit at the top. Scroll to the **additional disks**. Click **Add item**.
+
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-additional-disks.png "google-cloud-additional-disks.png")
+
+Under disk creation, name the new disk, select standard persistent disk, None (blank disk), and 50 GB. Click create, and save the instance edition.
+
+## Formating the data disk and mounting the data disk ##
+
+The disk you just added will be unformatted and not mounted, so we need additional steps in order to use the disk. We follow the guide [here](https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting). First, start the instance and connect to it.
+
+In the terminal, use the `lsblk` command to list the disks that are attached to your instance and find the disk that you want to format and mount.
+
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-disk-list.png "google-cloud-disk-list.png")
+
+In order case, the new disk is `sdb` (notice the size is 50GB). Format the disk by the command (change sdb if necessary).
+
+```
+sudo mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+```
+
+Make a mounting point. In this case, we name it `data`.
+
+```
+sudo mkdir -p /mnt/disks/data
+```
+
+Mount sdb onto data, and configure read write permission. Create a symbolic link to mount location.
+
+```
+sudo mount -o discard,defaults /dev/sdb /mnt/disks/data
+sudo chmod a+w /mnt/disks/data
+sudo ln -s /mnt/disks/data /data
+```
+
+You can now access the new disk at /data
+
+Finally, we want the OS to remember that we added this disk at this location. We need to edit a system file for this. Use the following commands:
+
+```
+sudo cp /etc/fstab /etc/fstab.backup
+echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/disks/disk-1 ext4 discard,defaults,nofail 0 2 | sudo tee -a /etc/fstab
+```
+
+Your disk is now setup.
+
 # BIG REMINDER: Make sure you stop your instances! #
 Don't forget to stop your instance when you are done (by clicking on the stop button at the top of the page showing your instances). You can restart your instance and the downloaded software will still be available. 
 

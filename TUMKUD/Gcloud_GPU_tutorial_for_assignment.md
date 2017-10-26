@@ -278,6 +278,8 @@ Click on edit at the top. Scroll to the **additional disks**. Click **Add item**
 
 Under disk creation, name the new disk, select standard persistent disk, None (blank disk), and 50 GB. Click create, and save the instance edition.
 
+![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-disk-create.png "google-cloud-disk-create.png")
+
 ## Formating the data disk and mounting the data disk ##
 
 The disk you just added will be unformatted and not mounted, so we need additional steps in order to use the disk. We follow the guide [here](https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting). First, start the instance and connect to it.

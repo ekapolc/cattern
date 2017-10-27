@@ -233,6 +233,11 @@ If you haven't already done so, activate your virtualenv by running:
 source .env/bin/activate
 ```
 
+The current image is missing one dependency, install it by
+```
+pip install h5py
+```
+
 Launch Jupyter notebook using:
 
 ```
@@ -324,3 +329,11 @@ Don't forget to stop your instance when you are done (by clicking on the stop bu
 
 # BIG REMINDER2: Cleaning up your usage! #
 After you are done with your assignments, you should delete the instance, delete the disk (under **Disks** in Compute Engine), and release the static IP.
+
+# Trouble Shooting #
+
+If you get this error when running nvidia-smi
+```
+Failed to initialize NVML: Driver/library version mismatch
+```
+Follow the instructions in [stackoverflow](https://stackoverflow.com/questions/43022843/nvidia-nvml-driver-library-version-mismatch)

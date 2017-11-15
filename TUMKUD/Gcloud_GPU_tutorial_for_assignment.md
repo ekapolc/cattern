@@ -233,9 +233,10 @@ If you haven't already done so, activate your virtualenv by running:
 source .env/bin/activate
 ```
 
-The current image is missing one dependency, install it by
+The current image is missing some dependencies, install them by
 ```
 pip install h5py
+pip install sklearn
 ```
 
 Launch Jupyter notebook using:

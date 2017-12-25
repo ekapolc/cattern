@@ -45,7 +45,7 @@ Click on the upgrade account and finish confirm the process. Before you upgrade 
 
 ![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-quotas-screen.png "google-cloud-quotas-screen.png")
 
-Click on the blue **Request Increase** button. This opens a new tab with many quota information. Select **Google Compute Engine API NVIDIA K80 GPUs**. Then, press on the **EDIT QUOTAS** button above. This will open a tab on the right side. Enter the necessary information as shown below
+Click on the blue **Request Increase** button. This opens a new tab with many quota information. Select **Google Compute Engine API NVIDIA K80 GPUs (asia-east1 region)**. Then, press on the **EDIT QUOTAS** button above. This will open a tab on the right side. Enter the necessary information as shown below
 
 ![alt text](https://github.com/ekapolc/cattern/raw/master/common/images/google-cloud-quotas-screen-step1.png "google-cloud-quotas-screen-step1.png")
 

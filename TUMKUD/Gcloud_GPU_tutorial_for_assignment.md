@@ -320,7 +320,7 @@ Finally, we want the OS to remember that we added this disk at this location. We
 
 ```
 sudo cp /etc/fstab /etc/fstab.backup
-echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/disks/disk-1 ext4 discard,defaults,nofail 0 2 | sudo tee -a /etc/fstab
+echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /mnt/disks/data ext4 discard,defaults,nofail 0 2 | sudo tee -a /etc/fstab
 ```
 
 Your disk is now setup.
